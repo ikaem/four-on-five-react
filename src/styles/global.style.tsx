@@ -5,6 +5,7 @@ import { createGlobalStyle } from "styled-components";
 export const COLORS = {
   darkBackground: "#3D3D49",
   lessDarkBackground: "#474A4B",
+  barelyVisibleBackground: "#EEEEEE",
   lightBackground: "#F8F8F8",
   lightText: "#CFCFCF",
   touchedText: "#C4C4C4",

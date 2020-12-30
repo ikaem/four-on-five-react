@@ -31,7 +31,7 @@ const DateWeatherStyled = styled.div<{ COLORS: typeof COLORS }>`
   display: flex;
   align-items: center;
 
-  font-size: 0.75rem;
+  /* font-size: 0.75rem; */
 
   > div {
     display: flex;
@@ -45,7 +45,7 @@ const DateWeatherStyled = styled.div<{ COLORS: typeof COLORS }>`
     margin-right: 2rem;
 
     svg {
-      height: 0.75rem;
+      height: 1rem;
       width: auto;
 
       margin-right: 0.5rem;

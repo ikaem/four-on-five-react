@@ -1,10 +1,14 @@
 // src\components\edit-match\edit-match-form.component.tsx
 
+import styled from "styled-components";
+
 import MatchLocation from "../shared/match-location.component";
+
+import { COLORS } from "../../styles/global.style";
 
 const EditMatchForm: React.FC = () => {
   return (
-    <div>
+    <EditMatchFormStyled COLORS={COLORS}>
       <form className="form-container_edit-match-form">
         <label htmlFor="matchName" className="edit-match-form_input">
           <span>Match title</span>
@@ -24,8 +28,8 @@ const EditMatchForm: React.FC = () => {
           <textarea
             name="matchDescription"
             id="matchDescription"
-            cols={30}
-            rows={10}
+            // cols={30}
+            // rows={10}
           />
         </label>
         <div className="edit-match-form_match-time">
@@ -90,8 +94,60 @@ const EditMatchForm: React.FC = () => {
           </button>
         </div>
       </form>
-    </div>
+    </EditMatchFormStyled>
   );
 };
 
 export default EditMatchForm;
+
+const EditMatchFormStyled = styled.div<{ COLORS: typeof COLORS }>`
+  padding: 0.5rem 0;
+
+  .form-container_edit-match-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        margin-bottom: 0.25rem;
+      }
+
+      select,
+      input,
+      textarea {
+        background-color: white;
+        box-shadow: 0 1px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+
+        padding: 0.5rem;
+        text-align: center;
+      }
+
+      textarea {
+        resize: vertical;
+        text-align: left;
+      }
+    }
+
+    .edit-match-form_match-time {
+      padding: 1rem;
+      background-color: ${({ COLORS }) => COLORS.barelyVisibleBackground};
+      border-radius: 4px;
+
+      display: flex;
+      flex-direction: column;
+
+      > label {
+        flex: 1;
+
+        &:nth-child(2) {
+          margin: 1rem 0;
+        }
+      }
+    }
+  }
+`;
