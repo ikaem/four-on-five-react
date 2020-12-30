@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src\App.tsx
+import { Switch, Route } from "react-router-dom";
+import Layout from "./components/layout/layout.component";
+import EditMatch from "./pages/edit-match.page";
+import Home from "./pages/home.page";
+import MatchDetailed from "./pages/match-detailed.page";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/match" exact>
+          <MatchDetailed />
+        </Route>
+        <Route path="/edit-match" exact>
+          <EditMatch />
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
 
