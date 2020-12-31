@@ -8,22 +8,24 @@ import { COLORS } from "../../styles/global.style";
 const Header: React.FC = () => {
   return (
     <HeaderStyled COLORS={COLORS} className="main-header">
-      <div className="main-header_logo-container">
-        <LogoHorizontal className="test" fill="red" />
+      <div>
+        <div className="main-header_logo-container">
+          <LogoHorizontal className="test" fill="red" />
+        </div>
+        <nav className="main-header_header-nav">
+          <ul className="header-nav_options">
+            <li className="header-nav__option">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="header-nav__option">
+              <Link to="/match">Match</Link>
+            </li>
+            <li className="header-nav__option">
+              <Link to="edit-match">Edit match</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <nav className="main-header_header-nav">
-        <ul className="header-nav_options">
-          <li className="header-nav__option">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="header-nav__option">
-            <Link to="/match">Match</Link>
-          </li>
-          <li className="header-nav__option">
-            <Link to="edit-match">Edit match</Link>
-          </li>
-        </ul>
-      </nav>
     </HeaderStyled>
   );
 };
@@ -31,37 +33,46 @@ const Header: React.FC = () => {
 export default Header;
 
 const HeaderStyled = styled.header<{ COLORS: typeof COLORS }>`
-  padding: 1rem;
+  > div {
+    padding: 1rem ;
 
-  display: flex;
-  flex-direction: column;
-
-  .header-nav_options {
     display: flex;
+    flex-direction: column;
 
-    > li {
-      margin-right: 2rem;
+    width: 100%;
 
-      &:first-child {
-        margin-right: auto;
-      }
+    max-width: 1160px;
+    margin: 0 auto;
 
-      &:last-child {
-        margin-right: 0;
+    .header-nav_options {
+      display: flex;
+
+      > li {
+        margin-right: 2rem;
+
+        &:first-child {
+          margin-right: auto;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
 
   @media (min-width: 40rem) {
-    padding: 2rem;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    > div {
+      padding: 2rem 0;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
 
-    .header-nav_options {
-      > li {
-        &:first-child {
-          margin-right: 2rem;
+      .header-nav_options {
+        > li {
+          &:first-child {
+            margin-right: 2rem;
+          }
         }
       }
     }

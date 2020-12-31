@@ -5,6 +5,7 @@ import styled from "styled-components";
 import MatchLocation from "../shared/match-location.component";
 
 import { COLORS } from "../../styles/global.style";
+import CustomButton from "../UI/custom-button.component";
 
 const EditMatchForm: React.FC = () => {
   return (
@@ -77,21 +78,18 @@ const EditMatchForm: React.FC = () => {
                 <option value={4}>Artificial grass 3, FC Barcelona</option>
               </select>
             </label>
-            <button className="edit-match-form_add-location-button">
+            <button
+              type="button"
+              className="edit-match-form_add-location-button"
+            >
               Add new location
             </button>
           </div>
           <MatchLocation />
         </div>
         <div className="edit-match-section_edit-actions">
-          <button type="submit" className="edit-actions_create-button">
-            <span>&gt;&gt;</span>
-            <span>Create</span>
-          </button>
-          <button type="button" className="edit-actions_cancel-button">
-            <span>&gt;&gt;</span>
-            <span>Cancel</span>
-          </button>
+          <CustomButton />
+          <CustomButton />
         </div>
       </form>
     </EditMatchFormStyled>
@@ -147,6 +145,36 @@ const EditMatchFormStyled = styled.div<{ COLORS: typeof COLORS }>`
         &:nth-child(2) {
           margin: 1rem 0;
         }
+      }
+    }
+
+    .edit-match-form_match-location {
+      padding: 1rem;
+      background-color: ${({ COLORS }) => COLORS.barelyVisibleBackground};
+      border-radius: 4px;
+      .match-location_existing-location {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        margin-bottom: 1rem;
+
+        label {
+          margin-bottom: 1rem;
+        }
+
+        button {
+          color: ${({ COLORS }) => COLORS.greenBib};
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .edit-match-section_edit-actions {
+      display: flex;
+      flex-direction: column;
+
+      > :first-child {
+        margin-bottom: 1rem;
       }
     }
   }

@@ -1,7 +1,13 @@
+// src\components\edit-match\new-location-form.component.tsx
+
+import styled from "styled-components";
+import { COLORS } from "../../styles/global.style";
+import CustomButton from "../UI/custom-button.component";
+
 const NewLocationForm: React.FC = () => {
   return (
-    <div>
-      <span className="new-location_label">Create new Location</span>
+    <NewLocationFormStyled COLORS={COLORS}>
+      <h4 className="new-location_label">Create new Location</h4>
       <form className="match-location_new-location">
         <label htmlFor="newLocationName" className="edit-match-form_input">
           <span>Name</span>
@@ -27,13 +33,45 @@ const NewLocationForm: React.FC = () => {
             id="newLocationCountry"
           />
         </label>
-        <button type="button">
-          <span>&gt;</span>
-          <span>Create location</span>
-        </button>
+        <CustomButton />
       </form>
-    </div>
+    </NewLocationFormStyled>
   );
 };
 
 export default NewLocationForm;
+
+const NewLocationFormStyled = styled.div<{ COLORS: typeof COLORS }>`
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: ${({ COLORS }) => COLORS.barelyVisibleBackground};
+  border-radius: 4px;
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        margin-bottom: 0.25rem;
+      }
+
+      input {
+        background-color: white;
+        box-shadow: 0 1px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+
+        padding: 0.5rem;
+        text-align: center;
+      }
+    }
+  }
+`;

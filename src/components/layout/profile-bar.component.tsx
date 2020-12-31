@@ -46,6 +46,10 @@ const ProfileBarStyled = styled.section<{ COLORS: typeof COLORS }>`
   align-items: center;
 
   padding: 1rem;
+  width: 100%;
+
+  max-width: 1160px;
+  margin: 0 auto;
 
   background-color: ${({ COLORS }) => COLORS.lessDarkBackground};
 

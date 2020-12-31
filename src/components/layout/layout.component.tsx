@@ -46,14 +46,18 @@ const LayoutStyled = styled.div`
 
   height: 100%;
   width: 100%;
-  max-width: 1160px;
 
-  margin: 0 auto;
   /* padding: 1rem; */
+
+  main {
+    width: 100%;
+
+    max-width: 1160px;
+    margin: 0 auto;
+  }
 
   footer {
     margin-top: auto;
-    background-color: red;
   }
 
   @media (min-width: 40rem) {
