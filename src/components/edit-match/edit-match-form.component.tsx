@@ -53,7 +53,7 @@ const EditMatchForm: React.FC = () => {
             />
           </label>
           <label htmlFor="matchTimeEnd" className="edit-match-form_input">
-            <span>Match Start</span>
+            <span>Match End</span>
             <input
               type="time"
               name="matchTimeEnd"

@@ -6,10 +6,14 @@ import { ReactComponent as CaretIcon } from "../../assets/images/icons/caret.svg
 
 import { COLORS } from "../../styles/global.style";
 
-const SectionHeader: React.FC = () => {
+interface SectionHeaderProps {
+  label: string;
+}
+
+const SectionHeader: React.FC<SectionHeaderProps> = ({ label }) => {
   return (
     <SectionHeaderStyled COLORS={COLORS} className="matches-section_header">
-      <h2>My Matches</h2>
+      <h2>{label}</h2>
       <span>(6 upcoming)</span>
       <CaretIcon />
     </SectionHeaderStyled>

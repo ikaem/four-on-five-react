@@ -28,9 +28,9 @@ const ProfileBar: React.FC = () => {
             </Link>
           </li>
           <li className="profile-nav_nav-option">
-            <Link to="#">
+            <Link to="/edit-match">
               <AddIcon />
-              <span className="nav-option_label">Create a match</span>
+              <span className="nav-option_label">Create match</span>
             </Link>
           </li>
         </ul>

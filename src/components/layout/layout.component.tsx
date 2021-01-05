@@ -14,9 +14,9 @@ import Lato from "../../assets/fonts/lato/lato-300-n.woff2";
 const Lato2 = import("../../assets/fonts/lato/lato-300-n.woff2");
 
 const Layout: React.FC = ({ children }) => {
-  console.log(Lato);
-  Lato2.then(console.log);
-  console.log(require("../../assets/fonts/lato/lato-300-n.woff2"));
+  // console.log(Lato);
+  // Lato2.then(console.log);
+  // console.log(require("../../assets/fonts/lato/lato-300-n.woff2"));
 
   /* 
   /static/media/lato-300-n.dd124df8.woff2

@@ -14,7 +14,7 @@ const EditMatchContainer: React.FC = () => {
       COLORS={COLORS}
       className="main-content_edit-match-section"
     >
-      <SectionHeader />
+      <SectionHeader label="Create new match" />
       <EditMatchForm />
       <NewLocationForm />
     </EditMatchContainerStyled>

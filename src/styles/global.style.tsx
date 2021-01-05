@@ -125,30 +125,3 @@ h1, h2, h3, h4, h5 {
 `;
 
 export default GlobalStyle;
-
-/* 
-// import Lato300 from "../assets/fonts/lato/lato-300-n.woff2";
-// import Lato400 from "../assets/fonts/lato/lato-400-n.woff2";
-// import Lato700 from "../assets/fonts/lato/lato-700-n.woff2";
-// import Lato900 from "../assets/fonts/lato/lato-900-n.woff2";
-
-*/
-
-/* @font-face {
-  font-family: "Lato";
-  src: url(${require("../assets/fonts/lato/lato-400-n.woff2")}) format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Lato";
-  src: url(${require("../assets/fonts/lato/lato-700-n.woff2")}) format("woff2");
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Lato";
-  src: url(${require("../assets/fonts/lato/lato-900-n.woff2")}) format("woff2");
-  font-weight: 900;
-  font-display: swap;
-} */

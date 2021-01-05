@@ -16,7 +16,7 @@ const MatchDetailedContainer: React.FC = () => {
       COLORS={COLORS}
       className="main-content_match-detailed-section"
     >
-      <SectionHeader />
+      <SectionHeader label="Match details" />
       <MatchDescription />
       <MatchActions />
       <MatchInfo />
