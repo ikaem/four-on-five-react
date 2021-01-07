@@ -7,7 +7,11 @@ import { ReactComponent as SunnyIcon } from "../../assets/images/weather-icons/s
 
 import { COLORS } from "../../styles/global.style";
 
-const DateWeather: React.FC = () => {
+interface DateWeatherPropsI {
+  selectedDate?: string;
+}
+
+const DateWeather: React.FC<DateWeatherPropsI> = ({ selectedDate }) => {
   return (
     <DateWeatherStyled
       COLORS={COLORS}
@@ -15,7 +19,7 @@ const DateWeather: React.FC = () => {
     >
       <div className="selected-date-info_full-date">
         <CalendarIcon />
-        <span>Friday, 16 Dec 2020</span>
+        <span>{selectedDate}</span>
       </div>
       <div className="selected-date-info_weather-info">
         <SunnyIcon />

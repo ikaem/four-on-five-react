@@ -18,24 +18,31 @@ export const renderTestWrapper = (mocks: any[] = []) => {
   );
 
   render(<Wrapper />);
+
+  // then click on the Home link to go home immediately, and not stay at the last route...
+  userEvent.click(screen.getByText(/Home/));
 };
 
+test("heloo", () => {});
+
 describe("Application", () => {
-  test("renders correctly", () => {
-    // render(<Wrapper />);
+  test("renders correctly", async () => {
     renderTestWrapper();
+    await screen.findAllByText("");
   });
 });
 
 describe("Header component", () => {
-  test("navigates to Home when 'home' link is clicked", () => {
+  test("navigates to Home when 'home' link is clicked", async () => {
     renderTestWrapper();
+    await screen.findAllByText("");
 
     // click create match button to navigate away
     userEvent.click(screen.getByText(/Create match/));
 
     // then click on the Home link
     userEvent.click(screen.getByText(/Home/));
+    await screen.findAllByText("");
 
     // assert that we are on the home page
     expect(screen.getByText(/My matches/)).toBeInTheDocument();
@@ -43,8 +50,9 @@ describe("Header component", () => {
 });
 
 describe("ProfileBar component", () => {
-  test("navigates to EditMatch component when 'Create Match' link is clicked", () => {
+  test("navigates to EditMatch component when 'Create Match' link is clicked", async () => {
     renderTestWrapper();
+    await screen.findAllByText("");
 
     userEvent.click(screen.getByText(/Create match/));
 

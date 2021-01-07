@@ -1,21 +1,38 @@
 // src\components\home\dates-selector.component.tsx
 
 import styled from "styled-components";
+import dayjs from "dayjs";
 
 import DatePicker from "./date-picker.component";
 import DatesSlider from "./dates-slider.component";
 
 import { COLORS } from "../../styles/global.style";
 
-const DatesSelector: React.FC = () => {
+interface DateSelectorPropsI {
+  handleSelectedDate: (dateISOString: string) => void;
+}
+
+const DatesSelector: React.FC<DateSelectorPropsI> = ({
+  handleSelectedDate,
+}) => {
   return (
     <DatesSelectorStyled
       COLORS={COLORS}
       className="matches-section_dates-container"
     >
-      <button className="dates-container_now-day active">Today</button>
-      <button className="dates-container_now-day">Tomorrow</button>
-      <DatesSlider />
+      <button
+        className="dates-container_now-day active"
+        onClick={() => handleSelectedDate(dayjs().toISOString())}
+      >
+        Today
+      </button>
+      <button
+        className="dates-container_now-day"
+        onClick={() => handleSelectedDate(dayjs().add(1, "day").toISOString())}
+      >
+        Tomorrow
+      </button>
+      {/* <DatesSlider /> */}
       <DatePicker />
     </DatesSelectorStyled>
   );

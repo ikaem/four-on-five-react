@@ -4,8 +4,18 @@ import React from "react";
 import styled from "styled-components";
 import { gql, useLazyQuery } from "@apollo/client";
 
+import dayjs from "dayjs";
+
 import { COLORS } from "../styles/global.style";
 import MatchesContainer from "../components/home/matches-container.component";
+
+interface MatchBriefI {
+  id: string;
+}
+
+export interface MatchesDataI {
+  getMyMatches: MatchBriefI[];
+}
 
 export const GET_MY_MATCHES = gql`
   query GetMyMatches($myId: String!) {
@@ -31,30 +41,36 @@ export const GET_MY_MATCHES = gql`
 `;
 
 const Home: React.FC = () => {
-  const [getMyMatches, { loading, error, data }] = useLazyQuery(
-    GET_MY_MATCHES,
-    {
-      variables: {
-        myId: "1",
-      },
-    }
-  );
+  const today = dayjs().toISOString();
+  console.log("todaaaay", today);
 
-  console.log("data here", data);
-  console.log("loading here", loading);
-  console.log("error here", error);
+  const tomorrow = dayjs().add(1, "day").toISOString();
+  console.log("tomorrow", tomorrow);
 
-  React.useEffect(() => {
-    getMyMatches();
+  // const current;
 
-      // TODO: dependency array will hold date value so that it refetches when date changes
-      // TODO: which means we have to send the date as an argument as well
-  }, []);
+  // const [getMyMatches, { loading, error, data }] = useLazyQuery<MatchesDataI>(
+  //   GET_MY_MATCHES,
+  //   {
+  //     variables: {
+  //       myId: "1",
+  //     },
+  //   }
+  // );
+
+  // console.log("data here", data);
+
+  // React.useEffect(() => {
+  //   getMyMatches();
+
+  //   // TODO: dependency array will hold date value so that it refetches when date changes
+  //   // TODO: which means we have to send the date as an argument as well
+  // }, []);
 
   return (
     <MainStyled COLORS={COLORS} className="main-content">
-      <MatchesContainer myMatches />
-      <MatchesContainer />
+      <MatchesContainer isMyMatches />
+      {/* <MatchesContainer /> */}
     </MainStyled>
   );
 };

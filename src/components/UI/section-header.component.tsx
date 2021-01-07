@@ -8,13 +8,17 @@ import { COLORS } from "../../styles/global.style";
 
 interface SectionHeaderProps {
   label: string;
+  matchesNumber?: number;
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({ label }) => {
+const SectionHeader: React.FC<SectionHeaderProps> = ({
+  label,
+  matchesNumber,
+}) => {
   return (
     <SectionHeaderStyled COLORS={COLORS} className="matches-section_header">
       <h2>{label}</h2>
-      <span>(6 upcoming)</span>
+      {matchesNumber !== undefined && <span>({matchesNumber} upcoming)</span>}
       <CaretIcon />
     </SectionHeaderStyled>
   );
