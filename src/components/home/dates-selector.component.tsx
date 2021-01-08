@@ -33,7 +33,7 @@ const DatesSelector: React.FC<DateSelectorPropsI> = ({
         Tomorrow
       </button>
       {/* <DatesSlider /> */}
-      <DatePicker />
+      <DatePicker handleSelectedDate={handleSelectedDate} />
     </DatesSelectorStyled>
   );
 };
